@@ -207,9 +207,15 @@
 
       /* Pastikan section utama memiliki posisi relatif jika dibutuhkan */
       .container-section {
+        /* width: 100%; */
+        /* max-width: 100%; */
+        /* margin: 0 auto; */
+
+        position: relative;
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
+        overflow: hidden;
       }
 
       /* 1. Kontainer pembungkus yang menentukan ukuran 'fullscreen' di dalam section */
@@ -224,7 +230,7 @@
       }
 
       /* 2. Memaksa iframe memenuhi 100% ruang pembungkusnya */
-      .iframe-wrapper iframe {
+      .iframe-wrapper video {
         position: absolute;
         top: 0;
         left: 0;
@@ -233,10 +239,50 @@
         border: none;
         transform: scale(1.15);
         transform-origin: center center;
+        z-index: 1;
+      }
+
+      .iframe-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Hitam transparan 50% */
+        z-index: 2; /* Di atas iframe, di bawah teks */
+        pointer-events: none; /* PENTING: Klik mouse akan "menembus" lapisan ini ke video */
+      }
+
+      .iframe-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3; /* Lapisan teratas, di depan iframe */
+
+        /* Mengatur teks tepat di tengah secara vertikal & horizontal */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        pointer-events: none; /* PENTING: Agar user tetap bisa klik tombol Play/Pause pada video */
+      }
+
+      #gif-scroll-down {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center;
+        text-align: center;
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="v1.0.0/assets/js/jquery-4.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="animation.js"></script>
@@ -312,36 +358,145 @@
     <!-- Video -->
     <section class="container-section">
       <div class="iframe-wrapper">
-        <iframe
-          src="assets/vid/assets_video.mp4"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        >
-        </iframe>
+        <video autoplay muted>
+          <source
+            src="../main/v1.0.0/assets/vid/assets_video.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Elemen Teks di lapisan paling atas -->
+      <div class="iframe-text">
+        <div class="max-w-3xl w-full text-center space-y-8 fade-in visible">
+          <div class="space-y-7">
+            <p
+              class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase"
+              id="txtWeddingOf"
+            >
+              The Wedding of
+            </p>
+            <h2
+              class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+              id="txtGerwin"
+            >
+              Gerwin
+            </h2>
+            <h2
+              class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+              id="txtAnd"
+            >
+              &amp;
+              <h2
+                class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+                id="txtVerin"
+              >
+                Verin
+              </h2>
+            </h2>
+          </div>
+          <p
+            class="font-headline-sm text-headline-sm md:text-headline-md text-on-surface-variant"
+            id="txtDate"
+          >
+            28 . 11 . 2026
+          </p>
+          <div id="gif-scroll-down"></div>
+          <!-- <div class="space-y-6"></div> -->
+          <!-- <div class="pt-8">
+            <button
+              class="px-10 py-4 bg-secondary-container text-on-secondary-container rounded-full font-label-caps text-label-caps tracking-widest hover:bg-secondary hover:text-on-secondary transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
+            >
+              <span class="">SCROLL DOWN</span>
+              <span
+                class="material-symbols-outlined text-xl"
+                data-icon="expand_more"
+                >expand_more</span
+              >
+            </button>
+          </div> -->
+        </div>
       </div>
     </section>
-    <!-- <section id="iframe-container">
-      <iframe
-        src="../main/v1.0.0/assets/vid/assets_video.mp4"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-      >
-      </iframe>
-    </section> -->
+
+    <script>
+      // 1. Create a timeline container
+      let textTimeline = anime.timeline({
+        loop: false, // Set to true if you want the cycle to repeat infinitely
+      });
+
+      // 2. Add the Fade-Out step
+      textTimeline.add({
+        targets: [
+          "#txtWeddingOf",
+          "#txtGerwin",
+          "#txtAnd",
+          "#txtVerin",
+          "#txtDate",
+        ],
+        opacity: 0,
+        duration: 0.5, // 1 second duration
+        easing: "linear", // Even, steady transition
+        delay: 0,
+      });
+
+      // 3. Add the Fade-In step (Executes right after step 2 finishes)
+      textTimeline
+        .add({
+          targets: "#txtWeddingOf",
+          translateY: [25, 0],
+          opacity: [0, 1],
+          duration: 500, // 1 second duration
+          easing: "easeOutExpo", // Even, steady transition
+          delay: 13000, // Stay invisible for 0.5 seconds before fading back in
+        })
+        .add({
+          targets: "#txtGerwin",
+          translateY: [25, 0],
+          opacity: [0, 1],
+          duration: 750, // 1 second duration
+          easing: "easeOutExpo", // Even, steady transition
+          delay: 250, // Stay invisible for 0.5 seconds before fading back in
+        })
+        .add({
+          targets: "#txtAnd",
+          translateY: [25, 0],
+          opacity: [0, 1],
+          duration: 750, // 1 second duration
+          easing: "easeOutExpo", // Even, steady transition
+          delay: 5, // Stay invisible for 0.5 seconds before fading back in
+        })
+        .add({
+          targets: "#txtVerin",
+          translateY: [25, 0],
+          opacity: [0, 1],
+          duration: 750, // 1 second duration
+          easing: "easeOutExpo", // Even, steady transition
+          delay: 5, // Stay invisible for 0.5 seconds before fading back in
+        })
+        .add({
+          targets: "#txtDate",
+          opacity: 1,
+          duration: 500, // 1 second duration
+          easing: "easeOutExpo", // Even, steady transition
+          delay: 100, // Stay invisible for 0.5 seconds before fading back in
+        });
+
+      setTimeout(function () {
+        const container = document.getElementById("gif-scroll-down");
+        const img = document.createElement("img");
+        img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
+        img.width = 40;
+        img.height = 40;
+        container.appendChild(img);
+      }, 16500);
+    </script>
     <!-- 2. Immersive Invitation Section -->
     <section
       class="relative min-h-screen w-full flex items-center justify-center bg-primary-container px-6 py-section-gap"
     >
       <div class="max-w-3xl w-full text-center space-y-8 fade-in visible">
-        <!-- <iframe
-          src="../main/v1.0.0/assets/vid/assets_video.mp4"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        >
-        </iframe> -->
         <div class="space-y-4">
           <p
             class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase"
