@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gerwin &amp; Verin | Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#1c1c18",
+              "on-surface": "#1b1c1c",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#efeded",
+              "on-secondary-container": "#745c00",
+              "on-tertiary-fixed": "#082014",
+              "primary-container": "#f9f6f0",
+              "outline-variant": "#c8c7be",
+              secondary: "#735c00",
+              "surface-container-low": "#f5f3f3",
+              "surface-bright": "#fbf9f8",
+              "on-tertiary-fixed-variant": "#344c3e",
+              tertiary: "#4c6455",
+              "surface-tint": "#5f5e5a",
+              "secondary-fixed-dim": "#e9c349",
+              primary: "#5f5e5a",
+              "surface-dim": "#dbd9d9",
+              "on-error-container": "#93000a",
+              "secondary-container": "#fed65b",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e4e2e2",
+              "surface-container-lowest": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary-container": "#72706c",
+              "on-primary-fixed-variant": "#474743",
+              "surface-container-high": "#eae8e7",
+              surface: "#fbf9f8",
+              "primary-fixed-dim": "#c9c6c1",
+              "on-background": "#1b1c1c",
+              "on-tertiary-container": "#5d7667",
+              "surface-container-highest": "#e4e2e2",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#b2cdbb",
+              "inverse-primary": "#c9c6c1",
+              "tertiary-container": "#e2fdea",
+              "primary-fixed": "#e5e2dc",
+              "inverse-on-surface": "#f2f0f0",
+              "secondary-fixed": "#ffe088",
+              "on-surface-variant": "#474741",
+              "inverse-surface": "#303030",
+              outline: "#787770",
+              background: "#fbf9f8",
+              "on-secondary-fixed": "#241a00",
+              "on-secondary-fixed-variant": "#574500",
+              "tertiary-fixed": "#cee9d6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              gutter: "24px",
+              "container-max": "1140px",
+              "section-gap": "120px",
+              unit: "8px",
+              "margin-mobile": "20px",
+              "stack-md": "16px",
+              "stack-sm": "8px",
+              "stack-lg": "32px",
+            },
+            fontFamily: {
+              "label-caps": ["Plus Jakarta Sans"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "headline-md": ["Playfair Display"],
+              "display-lg-mobile": ["Playfair Display"],
+              "display-lg": ["Playfair Display"],
+              "body-md": ["Plus Jakarta Sans"],
+              "headline-sm": ["Playfair Display"],
+            },
+            fontSize: {
+              "label-caps": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.1em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "500" },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-sm": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "500" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .square {
+        height: 50px;
+        width: 50px;
+        background-color: #555;
+      }
+    </style>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 1.2s ease-out forwards;
+      }
+      .delay-1s {
+        animation-delay: 1.5s;
+      }
+
+      .carousel-item {
+        transition: opacity-1.5s ease-in-out;
+      }
+      .gold-border {
+        border: 1px solid rgba(115, 92, 0, 0.2);
+      }
+      .botanical-divider {
+        width: 100%;
+        height: 60px;
+        mask-image: url("https://www.svgrepo.com/show/435165/divider-ornamental.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        background-color: #735c00;
+        opacity: 0.2;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Takes up the full viewport height */
+        overflow: hidden;
+      }
+
+      #full-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the section without distorting */
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+
+      /* Pastikan section utama memiliki posisi relatif jika dibutuhkan */
+      .container-section {
+        /* width: 100%; */
+        /* max-width: 100%; */
+        /* margin: 0 auto; */
+
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      /* 1. Kontainer pembungkus yang menentukan ukuran 'fullscreen' di dalam section */
+      .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        /* Anda bisa menentukan tinggi absolut atau menggunakan aspek rasio */
+        height: 800px;
+        background-color: #000; /* Warna latar belakang sebelum iframe termuat */
+        border: 1px solid #ccc;
+        overflow: hidden;
+      }
+
+      /* 2. Memaksa iframe memenuhi 100% ruang pembungkusnya */
+      .iframe-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        transform: scale(1.15);
+        transform-origin: center center;
+        z-index: 1;
+      }
+
+      .iframe-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Hitam transparan 50% */
+        z-index: 2; /* Di atas iframe, di bawah teks */
+        pointer-events: none; /* PENTING: Klik mouse akan "menembus" lapisan ini ke video */
+      }
+
+      .iframe-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3; /* Lapisan teratas, di depan iframe */
+
+        /* Mengatur teks tepat di tengah secara vertikal & horizontal */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        pointer-events: none; /* PENTING: Agar user tetap bisa klik tombol Play/Pause pada video */
+      }
+
+      #gif-scroll-down {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="v1.0.0/assets/js/jquery-4.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script type="text/javascript" src="invitation.js"></script>
+    <script type="text/javascript" src="animation.js"></script>
+  </head>
+  <body class="bg-background text-on-surface overflow-x-hidden">
+    <!-- Floating Music Toggle -->
+    <div class="fixed bottom-24 md:bottom-12 right-6 md:right-12 z-40">
+      <button
+        class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-secondary-container text-on-secondary-container shadow-lg flex items-center justify-center hover:scale-110 transition-transform active:scale-95"
+        id="musicToggle"
+      >
+        <span
+          class="material-symbols-outlined text-2xl md:text-3xl"
+          data-icon="music_note"
+          id="musicIcon"
+          >music_note</span
+        >
+      </button>
+    </div>
+    <!-- Video & Audio -->
+    <section class="container-section scroll-section" id="section-opening">
+      <div class="iframe-wrapper">
+        <video autoplay muted>
+          <source
+            src="../main/v1.0.0/assets/vid/assets_video.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Elemen Teks di lapisan paling atas -->
+      <div class="iframe-text">
+        <div class="max-w-3xl w-full text-center space-y-8 fade-in visible">
+          <div class="space-y-7">
+            <p
+              class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase"
+              id="txtWeddingOf"
+            >
+              The Wedding of
+            </p>
+            <h2
+              class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+              id="txtGerwin"
+            >
+              Gerwin
+            </h2>
+            <h2
+              class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+              id="txtAnd"
+            >
+              &amp;
+              <h2
+                class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary"
+                id="txtVerin"
+              >
+                Verin
+              </h2>
+            </h2>
+          </div>
+          <p
+            class="font-headline-sm text-headline-sm md:text-headline-md text-on-surface-variant"
+            id="txtDate"
+          >
+            28 . 11 . 2026
+          </p>
+          <div id="gif-scroll-down"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // 1. Create a timeline container
+      //   let textTimeline = anime.timeline({
+      //     loop: false, // Set to true if you want the cycle to repeat infinitely
+      //   });
+
+      // 2. Add the Fade-Out step
+      //   textTimeline.add({
+      //     targets: [
+      //       "#txtWeddingOf",
+      //       "#txtGerwin",
+      //       "#txtAnd",
+      //       "#txtVerin",
+      //       "#txtDate",
+      //     ],
+      //     opacity: 0,
+      //     duration: 500, // 1 second duration
+      //     easing: "linear", // Even, steady transition
+      //     delay: 0,
+      //   });
+
+      // 3. Add the Fade-In step (Executes right after step 2 finishes)
+      //   textTimeline
+      //     .add({
+      //       targets: "#txtWeddingOf",
+      //       translateY: [25, 0],
+      //       opacity: [0, 1],
+      //       duration: 500, // 1 second duration
+      //       easing: "easeOutExpo", // Even, steady transition
+      //       delay: 13000, // Stay invisible for 0.5 seconds before fading back in
+      //     })
+      //     .add({
+      //       targets: "#txtGerwin",
+      //       translateY: [25, 0],
+      //       opacity: [0, 1],
+      //       duration: 750, // 1 second duration
+      //       easing: "easeOutExpo", // Even, steady transition
+      //       delay: 250, // Stay invisible for 0.5 seconds before fading back in
+      //     })
+      //     .add({
+      //       targets: "#txtAnd",
+      //       translateY: [25, 0],
+      //       opacity: [0, 1],
+      //       duration: 750, // 1 second duration
+      //       easing: "easeOutExpo", // Even, steady transition
+      //       delay: 5, // Stay invisible for 0.5 seconds before fading back in
+      //     })
+      //     .add({
+      //       targets: "#txtVerin",
+      //       translateY: [25, 0],
+      //       opacity: [0, 1],
+      //       duration: 750, // 1 second duration
+      //       easing: "easeOutExpo", // Even, steady transition
+      //       delay: 5, // Stay invisible for 0.5 seconds before fading back in
+      //     })
+      //     .add({
+      //       targets: "#txtDate",
+      //       opacity: 1,
+      //       duration: 500, // 1 second duration
+      //       easing: "easeOutExpo", // Even, steady transition
+      //       delay: 100, // Stay invisible for 0.5 seconds before fading back in
+      //     });
+
+      //   setTimeout(function () {
+      //     const container = document.getElementById("gif-scroll-down");
+      //     const img = document.createElement("img");
+      //     img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
+      //     img.width = 40;
+      //     img.height = 40;
+      //     container.appendChild(img);
+      //   }, 16500);
+    </script>
+    <!-- 3. Bible Verse Section -->
+    <section
+      class="py-24 md:py-32 px-gutter bg-background fade-in visible scroll-section"
+      id="section-bible"
+    >
+      <div
+        class="max-w-2xl mx-auto text-center flex flex-col items-center py-20 px-6"
+      >
+        <img
+          src="./v1.0.0/assets/img/cross.png"
+          alt="Cross"
+          width="72"
+          height="72"
+          class="imgCross"
+        />
+
+        <h3
+          class="font-headline-sm text-headline-sm text-on-background tracking-[0.3em] uppercase mb-8 mt-4"
+          id="txtBible"
+        >
+          MATTHEW 19:6
+        </h3>
+        <p
+          class="font-headline-sm text-2xl md:text-3xl text-on-surface-variant leading-[1.8] mb-16 font-light"
+          id="txtBible2"
+        >
+          So they are no longer two, but one flesh. Therefore what God has
+          joined together, let no one separate.
+        </p>
+        <p class="font-headline-sm text-xl text-on-background" id="txtBible3">
+          Gerwin &amp; Verin
+        </p>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const options = {
+          root: null,
+          threshold: 1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            let sectionOpeningTimeline = anime.timeline({
+              loop: false,
+            });
+
+            let sectionBibleTimeline = anime.timeline({
+              loop: false, // Set to true if you want the cycle to repeat infinitely
+            });
+
+            if (entry.isIntersecting) {
+              if (entry.target.id === "section-opening") {
+                sectionOpeningTimeline
+                  .add({
+                    targets: "#txtWeddingOf",
+                    opacity: [0, 1],
+                    duration: 500, // 1 second duration
+                    easing: "easeOutExpo", // Even, steady transition
+                    delay: 13000, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtGerwin",
+                    opacity: [0, 1],
+                    duration: 750, // 1 second duration
+                    easing: "easeOutExpo", // Even, steady transition
+                    delay: 250, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtAnd",
+                    opacity: [0, 1],
+                    duration: 750, // 1 second duration
+                    easing: "easeOutExpo", // Even, steady transition
+                    delay: 5, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtVerin",
+                    opacity: [0, 1],
+                    duration: 750, // 1 second duration
+                    easing: "easeOutExpo", // Even, steady transition
+                    delay: 5, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtDate",
+                    opacity: [0, 1],
+                    duration: 500, // 1 second duration
+                    easing: "easeOutExpo", // Even, steady transition
+                    delay: 100, // Stay invisible for 0.5 seconds before fading back in
+                  });
+
+                setTimeout(function () {
+                  const container = document.getElementById("gif-scroll-down");
+                  const img = document.createElement("img");
+                  img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
+                  img.width = 40;
+                  img.height = 40;
+                  container.appendChild(img);
+                }, 16500);
+              } else if (entry.target.id === "section-bible") {
+                sectionBibleTimeline
+                  .add({
+                    targets: ".imgCross",
+                    opacity: [0, 1],
+                    duration: 250, // 1 second duration
+                    easing: "linear", // Even, steady transition
+                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtBible",
+                    opacity: [0, 1],
+                    duration: 250, // 1 second duration
+                    easing: "linear", // Even, steady transition
+                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtBible2",
+                    opacity: [0, 1],
+                    duration: 250, // 1 second duration
+                    easing: "linear", // Even, steady transition
+                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
+                  })
+                  .add({
+                    targets: "#txtBible3",
+                    opacity: [0, 1],
+                    duration: 250, // 1 second duration
+                    easing: "linear", // Even, steady transition
+                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
+                  });
+              }
+
+              observer.unobserve(entry.target);
+            } else {
+              if (entry.target.id === "section-opening") {
+                sectionOpeningTimeline.add({
+                  targets: [
+                    "#txtWeddingOf",
+                    "#txtGerwin",
+                    "#txtAnd",
+                    "#txtVerin",
+                    "#txtDate"
+                  ],
+                  opacity: 0,
+                  duration: 0, // 1 second duration
+                  easing: "linear", // Even, steady transition
+                  delay: 0,
+                });
+              } else if (entry.target.id === "section-bible") {
+                sectionBibleTimeline.add({
+                  targets: [
+                    ".imgCross",
+                    "#txtBible",
+                    "#txtBible2",
+                    "#txtBible3"
+                  ],
+                  opacity: 0,
+                  duration: 0, // 1 second duration
+                  easing: "linear", // Even, steady transition
+                  delay: 0,
+                });
+              }
+            }
+          });
+        }, options);
+
+        document.querySelectorAll('.scroll-section').forEach(sec => observer.observe(sec));
+      });
+    </script>
+
+    <!-- 4. Groom Section -->
+    <section class="py-section-gap px-6 md:px-12 fade-in visible" id="groom">
+      <div
+        class="max-w-container-max mx-auto flex flex-col md:flex-row items-center md:items-end gap-12 md:gap-20"
+      >
+        <div
+          class="w-full md:w-1/2 aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
+        >
+          <img
+            alt="Gerwin Portrait"
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrx2jjYzO3hRD07BjG3omfyc5jZeRxIVXdOzOj5EzkRwg8ONBSe9tqCVuYANvFKKnCFeewTv4zTNttTc62c7hScrStKNclx2yWLNvJMS6yKquvqVan_bnHfCjJT2EIZpxer5wBFWVmA-Bp9wbACMbE-1hugzu6k3Cvxdf9W6Hqv24erspdAG0Iw6lZ7JjTuCeF5PxSY8MD99xKnZAzRBj5u13LNIa3pRRssYbZDubCd-DzfosOgQ-_N7clge_RlqypjthuVPvd-JuM"
+          />
+        </div>
+        <div class="w-full md:w-1/2 text-right flex flex-col items-end">
+          <p
+            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em] mb-8"
+          >
+            THE GROOM
+          </p>
+          <h3
+            class="font-display-lg text-5xl md:text-display-lg text-on-surface uppercase leading-tight mb-12"
+          >
+            GERWIN JONATHAN<br />HENRI
+          </h3>
+          <div class="space-y-2">
+            <p class="font-body-lg text-body-md text-on-surface-variant italic">
+              The Son of
+            </p>
+            <p class="font-body-lg text-body-md text-on-surface-variant italic">
+              Mr. Paulus Henri Susilo &amp; Mrs. Lie Indah Sri Lestari
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 5. Bride Section -->
+    <section
+      class="py-section-gap px-6 md:px-12 bg-primary-container/30 fade-in visible"
+      id="bride"
+    >
+      <div
+        class="flex flex-col md:flex-row-reverse items-center gap-stack-lg md:gap-20 max-w-container-max mx-auto"
+      >
+        <div
+          class="w-full md:w-1/2 aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl gold-border"
+        >
+          <img
+            alt="Verin Portrait"
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5AVxH1GVGSuaOJ9pv13cGJEDrMEf9Yu9prpynwGaQVOY8T50kSSCx1ThiGKb7X3JmK4QTW8c3J5hHgsHmoQWI9wpoJ9fy8Y2ZQGWGM9D6GTxT7MC4Q7TyuRtplkiF_jPWs2N31TjjYNAo49bcLZaBuiLqb9jKxUlXWzk_tLYdYfnC0EMXjOFui5YSQay_vPqrAmNhaDtTIUQAUl75_O5oh-Bmkn4fTY_ZxnVu0HbXnumP58ObWlH7zv7psw8_PkgJ2hYtAFBSY5Wi"
+          />
+        </div>
+        <div class="w-full md:w-1/2 md:text-left flex flex-col items-start">
+          <p
+            class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em] mb-8"
+          >
+            THE BRIDE
+          </p>
+          <h3
+            class="font-display-lg text-5xl md:text-display-lg text-on-surface uppercase leading-tight mb-12"
+          >
+            AVERINA<br />LAURENSIA
+          </h3>
+          <div class="space-y-2">
+            <p class="font-body-lg text-body-md text-on-surface-variant italic">
+              The Daughter of
+            </p>
+            <p class="font-body-lg text-body-md text-on-surface-variant italic">
+              Mr. Lauw Kian Joeng &amp; Mrs. Lena Setyowati
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 6. Venue Section -->
+    <section class="py-section-gap px-6 md:px-12 fade-in visible" id="venue">
+      <div class="mb-16 text-left">
+        <h3
+          class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background text-left uppercase leading-tight"
+        >
+          SATURDAY,<br />28 NOVEMBER 2026
+        </h3>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-stack-md md:gap-12 max-w-container-max mx-auto"
+      >
+        <!-- Ceremony Card -->
+        <div
+          class="p-12 md:p-16 bg-surface-container-lowest rounded-xl shadow-sm gold-border flex flex-col group hover:bg-primary/5 transition-colors"
+        >
+          <div class="flex flex-col items-start text-left space-y-4">
+            <span
+              class="material-symbols-outlined text-on-background text-4xl"
+              style="
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0,
+                  'opsz' 48;
+              "
+              >add</span
+            >
+            <h4
+              class="font-display-lg text-3xl md:text-4xl text-on-background uppercase"
+            >
+              HOLY MATRIMONY
+            </h4>
+            <p class="font-headline-sm text-xl md:text-2xl text-on-background">
+              AT 10.00 - 11.00 WIB
+            </p>
+            <p
+              class="font-body-md text-body-lg text-on-surface-variant leading-relaxed"
+            >
+              Saint Jehoshaphat Catholic Church,<br />Semolowaru, Surabaya, East
+              Java
+            </p>
+            <button
+              class="mt-4 px-8 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all shadow-sm uppercase"
+            >
+              GOOGLE MAPS
+            </button>
+          </div>
+        </div>
+        <!-- Reception Card -->
+        <div
+          class="p-12 md:p-16 bg-surface-container-lowest rounded-xl shadow-sm gold-border flex flex-col group hover:bg-primary/5 transition-colors"
+        >
+          <div class="flex flex-col items-start text-left space-y-4">
+            <span class="material-symbols-outlined text-on-background text-4xl"
+              >toll</span
+            >
+            <h4
+              class="font-display-lg text-3xl md:text-4xl text-on-background uppercase"
+            >
+              WEDDING RECEPTION
+            </h4>
+            <p class="font-headline-sm text-xl md:text-2xl text-on-background">
+              AT 18.00 - 20.00 WIB
+            </p>
+            <p
+              class="font-body-md text-body-lg text-on-surface-variant leading-relaxed"
+            >
+              Tristar Restaurant<br />Pasar Besar Wetan, Surabaya, East Java.
+            </p>
+            <button
+              class="mt-4 px-8 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all shadow-sm uppercase"
+            >
+              GOOGLE MAPS
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 7. Countdown Section -->
+    <section
+      class="relative min-h-screen flex items-center justify-center bg-[#38bdf8] py-24 px-6 md:px-12 fade-in visible"
+    >
+      <div class="max-w-container-max mx-auto text-center">
+        <div class="flex flex-col items-center gap-8">
+          <h4
+            class="font-display-lg text-display-lg-mobile md:text-headline-md text-black tracking-widest uppercase max-w-md mx-auto"
+          >
+            ALMOST TIME FOR OUR CELEBRATIONS
+          </h4>
+          <div
+            class="flex items-center justify-center gap-2 md:gap-4 text-black font-bold"
+            id="countdown"
+          >
+            <div class="flex flex-col items-center">
+              <span class="text-5xl md:text-7xl" id="days">139</span>
+              <span class="font-label-caps text-[10px] tracking-widest mt-2"
+                >DAYS</span
+              >
+            </div>
+            <span class="text-4xl md:text-6xl mb-6">:</span>
+            <div class="flex flex-col items-center">
+              <span class="text-5xl md:text-7xl" id="hours">11</span>
+              <span class="font-label-caps text-[10px] tracking-widest mt-2"
+                >HOURS</span
+              >
+            </div>
+            <span class="text-4xl md:text-6xl mb-6">:</span>
+            <div class="flex flex-col items-center">
+              <span class="text-5xl md:text-7xl" id="minutes">08</span>
+              <span class="font-label-caps text-[10px] tracking-widest mt-2"
+                >MINUTES</span
+              >
+            </div>
+            <span class="text-4xl md:text-6xl mb-6">:</span>
+            <div class="flex flex-col items-center">
+              <span class="text-5xl md:text-7xl" id="seconds">23</span>
+              <span class="font-label-caps text-[10px] tracking-widest mt-2"
+                >SECONDS</span
+              >
+            </div>
+          </div>
+          <button
+            class="mt-8 px-12 py-3 bg-[#ffcc33] text-black rounded-lg font-display-lg text-sm tracking-widest shadow-md hover:brightness-110 transition-all uppercase"
+          >
+            SAVE THE DATE
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- 8. Wedding Gift Section -->
+    <section class="py-section-gap px-6 md:px-12 fade-in visible" id="gift">
+      <div
+        class="max-w-2xl mx-auto text-center p-12 md:p-20 bg-white shadow-2xl rounded-[3rem] gold-border"
+      >
+        <h3
+          class="font-headline-sm text-headline-sm md:text-headline-md text-primary mb-10"
+        >
+          Wedding Gift
+        </h3>
+        <div
+          class="aspect-square w-56 md:w-64 mx-auto mb-10 bg-surface rounded-3xl flex items-center justify-center p-6 border border-dashed border-secondary/30"
+        >
+          <img
+            alt="QR Code Gift"
+            class="w-full h-full object-contain"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlht1UUTGkQqH7X_b8vW_rZJHrG62iRL2koXyfd8otpzTtPrloTTPw_QqUnvYpn3kDAv1UVMiiV0Fj92p0xEgtpxWv8O_MrRQBIaiSHT7u2Te_caKdgJITRLqXGwy9et-nhO4CikUGDMHfc9vQQTUKCx-i0PDDu4E8AgDGV5p1qH0-jiPJfpCn6NrzRgSI2R7jrZq_f7_68ftfn4kPpy0XAKu1whoA3Xs5eWQ0GD9p21-rTFYxouAdVCMM4g8mqPkFzY8nA1pckDFc"
+          />
+        </div>
+        <p
+          class="font-body-lg text-body-lg md:text-xl text-on-surface-variant italic leading-relaxed"
+        >
+          "Your presence is our greatest gift, but if you wish to contribute to
+          our future, scan here."
+        </p>
+      </div>
+    </section>
+    <!-- 9. RSVP Form Section -->
+    <section
+      class="py-section-gap px-6 md:px-12 bg-surface-container-low fade-in visible"
+      id="rsvp"
+    >
+      <div
+        class="max-w-3xl mx-auto bg-surface-container-lowest p-10 md:p-20 rounded-[2rem] shadow-xl border-t-8 border-secondary"
+      >
+        <div class="text-center mb-12">
+          <h3
+            class="font-headline-md text-headline-md md:text-display-lg-mobile text-primary"
+          >
+            RSVP
+          </h3>
+          <p class="font-body-md text-body-lg text-on-surface-variant">
+            Please confirm your attendance
+          </p>
+        </div>
+        <form class="space-y-8" id="rsvpForm">
+          <div>
+            <label
+              class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
+              >Guest Name</label
+            >
+            <input
+              class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-4 font-body-lg text-lg"
+              placeholder="Enter your full name"
+              type="text"
+            />
+          </div>
+          <div>
+            <label
+              class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
+              >Will you attend?</label
+            >
+            <div class="flex flex-wrap gap-12 mt-4">
+              <label class="inline-flex items-center cursor-pointer group">
+                <input
+                  class="w-6 h-6 text-secondary focus:ring-secondary border-outline-variant"
+                  name="attendance"
+                  type="radio"
+                  value="yes"
+                />
+                <span
+                  class="ml-4 font-body-lg text-lg group-hover:text-secondary transition-colors"
+                  >Yes, I'll be there</span
+                >
+              </label>
+              <label class="inline-flex items-center cursor-pointer group">
+                <input
+                  class="w-6 h-6 text-secondary focus:ring-secondary border-outline-variant"
+                  name="attendance"
+                  type="radio"
+                  value="no"
+                />
+                <span
+                  class="ml-4 font-body-lg text-lg group-hover:text-secondary transition-colors"
+                  >Sorry, I can't</span
+                >
+              </label>
+            </div>
+          </div>
+          <div>
+            <label
+              class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
+              >Wishes for the Couple</label
+            >
+            <textarea
+              class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-4 font-body-lg text-lg h-32 resize-none"
+              placeholder="Write your warm wishes..."
+            ></textarea>
+          </div>
+          <button
+            class="w-full py-6 bg-secondary text-on-secondary rounded-xl font-label-caps text-label-caps text-sm tracking-[0.3em] shadow-lg hover:brightness-110 active:scale-[0.99] transition-all"
+            type="submit"
+          >
+            SEND RSVP
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- 10. Wishes Wall Section -->
+    <section
+      class="py-section-gap px-6 md:px-12 fade-in overflow-hidden visible"
+    >
+      <div class="text-center mb-16">
+        <h3
+          class="font-headline-md text-headline-md md:text-display-lg-mobile text-primary"
+        >
+          Wishes Wall
+        </h3>
+      </div>
+      <div
+        class="flex flex-wrap justify-center gap-8 max-w-container-max mx-auto"
+      >
+        <div
+          class="p-10 bg-primary-container rounded-tr-[3rem] rounded-bl-[3rem] shadow-sm max-w-sm gold-border hover:-translate-y-2 transition-transform"
+        >
+          <p
+            class="font-body-md text-body-lg italic text-on-surface-variant mb-6 leading-relaxed"
+          >
+            "Congratulations! So happy for you both! Can't wait for the big
+            day!"
+          </p>
+          <p
+            class="font-label-caps text-label-caps text-secondary text-right tracking-widest"
+          >
+            — Sarah &amp; Mike
+          </p>
+        </div>
+        <div
+          class="p-10 bg-surface-container rounded-tl-[3rem] rounded-br-[3rem] shadow-sm max-w-sm gold-border hover:-translate-y-2 transition-transform"
+        >
+          <p
+            class="font-body-md text-body-lg italic text-on-surface-variant mb-6 leading-relaxed"
+          >
+            "Wishing you a lifetime of love, laughter, and endless happiness
+            together."
+          </p>
+          <p
+            class="font-label-caps text-label-caps text-secondary text-right tracking-widest"
+          >
+            — Aunt Eleanor
+          </p>
+        </div>
+        <div
+          class="p-10 bg-secondary-container/20 rounded-tr-[3rem] rounded-bl-[3rem] shadow-sm max-w-sm gold-border hover:-translate-y-2 transition-transform"
+        >
+          <p
+            class="font-body-md text-body-lg italic text-on-surface-variant mb-6 leading-relaxed"
+          >
+            "A perfect match! Truly inspired by your beautiful journey. Cheers!"
+          </p>
+          <p
+            class="font-label-caps text-label-caps text-secondary text-right tracking-widest"
+          >
+            — David Brooks
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- 11. Gallery Section (Wider Desktop Grid) -->
+    <section
+      class="py-section-gap px-6 md:px-12 bg-surface fade-in visible"
+      id="gallery"
+    >
+      <div class="max-w-container-max mx-auto text-center mb-16">
+        <div class="relative inline-block mb-12">
+          <h2
+            class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface uppercase tracking-widest leading-tight"
+          >
+            OUR PRE-WEDDING<br />CELEBRATIONS.
+          </h2>
+          <p
+            class="font-headline-sm text-3xl md:text-4xl text-secondary italic mt-[-1rem] md:mt-[-2rem] relative z-10"
+          >
+            Gerwin &amp; Verin
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+            <img
+              alt="Pre-wedding 1"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLsuZ9mgH7o2J9dK6wTWXmraeEqoDGkgz8qiidmWjOp1xs24xwogKkIwUcnmG6p-4Xmq7NdqUJ0Mcf0WuT1VsJhgQx7xX3c0jseVDLzDSTCKmQPC4XYZvg9ChXL8cQs_QRtZhGPJeHNdqbxwep2xHi_E8Rg-1V54IrsfWXSJ0f8xVJhcNB9RUhtA6AyZEZ4gx8CnfO9TTDmLrJrovAV48uGiIF1imIFZGk44psxYJeQb4uwU4D-VlBZt9pa9"
+            />
+          </div>
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+            <img
+              alt="Pre-wedding 2"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLvxtim2o0C45aJVjlBj8UMJNpAub8X8gCnSqVFlVNOQO-4GbDNUaVLIGyypphc_jSURKd0Sn54ZWbm30A39uE5b3tlKN2yMJcQAl6bPKkzcd3pJgbFEsvvmURKkju49vFm0fbWVbBLkvJ8psooDq4ZeL0xF_kPm2iXpbiFsbpJJ7ZebLFLah5tqmD93tuZMBBzg3JYxJU4FDZbAMxKZk_Ruug2pvabl6YJM6DT97S4BzpLOtoDniMMAQ8zq"
+            />
+          </div>
+          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+            <img
+              alt="Pre-wedding 3"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYPv4Darr1S1oHCSmkkZURMR9pPcCWIarAs5Gs2Yl_sK9Uxjt_90rDNUrXlbz4EDesBfX7e74e7Hem42siHdJp8AtInt2vkWR1Ntm8iV0BGIMvvevWwNb3IfuV9gH50ROH_hYiST1khnTS2Bzereye6LfRcXFypBSzkpJZiU_KH9J33vd7PcGVXJHsFVAOW8imRHbiZPRkAC-Qq3sjcle7IrzuT-M7mXlff7-j7mpylXC_R_V0GOjzL8IRS7euTdo4FD4OklZu4p5K"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 12. Thank You Section -->
+    <section
+      class="h-[80vh] flex flex-col items-center justify-center bg-primary-container text-center px-6 md:px-12 relative overflow-hidden"
+    >
+      <div class="botanical-divider absolute top-12 md:top-24 opacity-10"></div>
+      <div class="z-10">
+        <h2
+          class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-10"
+        >
+          Thank You
+        </h2>
+        <p
+          class="font-body-lg text-body-lg md:text-2xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed px-4"
+        >
+          Thank you for being a part of our story. We can't wait to celebrate
+          with you and share the beginning of our new chapter.
+        </p>
+        <p
+          class="font-headline-sm text-headline-sm md:text-headline-md text-secondary mt-16"
+        >
+          With Love, Gerwin &amp; Verin
+        </p>
+      </div>
+      <div
+        class="botanical-divider absolute bottom-12 md:bottom-24 opacity-10 rotate-180"
+      ></div>
+    </section>
+    <script>
+      // Countdown Logic
+      const targetDate = new Date("November 28, 2026 10:00:00").getTime();
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const gap = targetDate - now;
+
+        const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % day) / hour);
+        const m = Math.floor((gap % hour) / minute);
+        const s = Math.floor((gap % minute) / second);
+
+        if (document.getElementById("days")) {
+          document.getElementById("days").innerText = String(d).padStart(
+            2,
+            "0"
+          );
+          document.getElementById("hours").innerText = String(h).padStart(
+            2,
+            "0"
+          );
+          document.getElementById("minutes").innerText = String(m).padStart(
+            2,
+            "0"
+          );
+          document.getElementById("seconds").innerText = String(s).padStart(
+            2,
+            "0"
+          );
+        }
+      };
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Intersection Observer for Animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
