@@ -2,6 +2,7 @@
 
 <html class="scroll-smooth" lang="en" style="">
   <head>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Gerwin &amp; Verin | Wedding Invitation</title>
@@ -280,10 +281,107 @@
         align-items: center;
         text-align: center;
       }
+
+      .containerpic > header {
+        margin: 0 auto;
+        padding: 2em;
+      }
+
+      .containerpic > header {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.01);
+      }
+
+      .containerpic > header h1 {
+        font-size: 2.625em;
+        line-height: 1.3;
+        margin: 0;
+        font-weight: 300;
+      }
+
+      .containerpic > header span {
+        display: block;
+        font-size: 60%;
+        opacity: 0.8;
+        padding: 0 0 0.6em 0.1em;
+      }
+
+      .gridspic {
+        max-width: 69em;
+        list-style: none;
+        margin: 30px auto;
+        padding: 0;
+      }
+
+      .gridspic li {
+        display: block;
+        float: left;
+        padding: 7px;
+        width: 33%;
+        opacity: 0;
+      }
+
+      .gridspic li.shown,
+      .no-js .gridspic li,
+      .no-cssanimations .gridspic li {
+        opacity: 1;
+      }
+
+      .gridspic li a,
+      .gridspic li img {
+        outline: none;
+        border: none;
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Effect 2: Move Up */
+      .gridspic.effect-2 li.animate {
+        -webkit-transform: translateY(200px);
+        transform: translateY(200px);
+        -webkit-animation: moveUp 0.65s ease forwards;
+        animation: moveUp 0.65s ease forwards;
+      }
+
+      @-webkit-keyframes moveUp {
+        0% {
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes moveUp {
+        0% {
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .gridspic li {
+          width: 50%;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .gridspic li {
+          width: 100%;
+        }
+      }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="assets/js/jquery-4.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/animeonscroll.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
+    <script src="assets/js/classie.js"></script>
+    <script src="assets/js/modernizr.js"></script>
     <!-- <script type="text/javascript" src="invitation.js"></script> -->
     <!-- <script type="text/javascript" src="animation.js"></script> -->
   </head>
@@ -307,7 +405,7 @@
       <div class="iframe-wrapper">
         <video autoplay muted>
           <source
-            src="assets/vid/assets_video2.mp4"
+            src="assets/vid/assets_video.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -353,79 +451,6 @@
         </div>
       </div>
     </section>
-
-    <script>
-      // 1. Create a timeline container
-      //   let textTimeline = anime.timeline({
-      //     loop: false, // Set to true if you want the cycle to repeat infinitely
-      //   });
-
-      // 2. Add the Fade-Out step
-      //   textTimeline.add({
-      //     targets: [
-      //       "#txtWeddingOf",
-      //       "#txtGerwin",
-      //       "#txtAnd",
-      //       "#txtVerin",
-      //       "#txtDate",
-      //     ],
-      //     opacity: 0,
-      //     duration: 500, // 1 second duration
-      //     easing: "linear", // Even, steady transition
-      //     delay: 0,
-      //   });
-
-      // 3. Add the Fade-In step (Executes right after step 2 finishes)
-      //   textTimeline
-      //     .add({
-      //       targets: "#txtWeddingOf",
-      //       translateY: [25, 0],
-      //       opacity: [0, 1],
-      //       duration: 500, // 1 second duration
-      //       easing: "easeOutExpo", // Even, steady transition
-      //       delay: 13000, // Stay invisible for 0.5 seconds before fading back in
-      //     })
-      //     .add({
-      //       targets: "#txtGerwin",
-      //       translateY: [25, 0],
-      //       opacity: [0, 1],
-      //       duration: 750, // 1 second duration
-      //       easing: "easeOutExpo", // Even, steady transition
-      //       delay: 250, // Stay invisible for 0.5 seconds before fading back in
-      //     })
-      //     .add({
-      //       targets: "#txtAnd",
-      //       translateY: [25, 0],
-      //       opacity: [0, 1],
-      //       duration: 750, // 1 second duration
-      //       easing: "easeOutExpo", // Even, steady transition
-      //       delay: 5, // Stay invisible for 0.5 seconds before fading back in
-      //     })
-      //     .add({
-      //       targets: "#txtVerin",
-      //       translateY: [25, 0],
-      //       opacity: [0, 1],
-      //       duration: 750, // 1 second duration
-      //       easing: "easeOutExpo", // Even, steady transition
-      //       delay: 5, // Stay invisible for 0.5 seconds before fading back in
-      //     })
-      //     .add({
-      //       targets: "#txtDate",
-      //       opacity: 1,
-      //       duration: 500, // 1 second duration
-      //       easing: "easeOutExpo", // Even, steady transition
-      //       delay: 100, // Stay invisible for 0.5 seconds before fading back in
-      //     });
-
-      //   setTimeout(function () {
-      //     const container = document.getElementById("gif-scroll-down");
-      //     const img = document.createElement("img");
-      //     img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
-      //     img.width = 40;
-      //     img.height = 40;
-      //     container.appendChild(img);
-      //   }, 16500);
-    </script>
     <!-- 3. Bible Verse Section -->
     <section
       class="py-24 md:py-32 px-gutter bg-background fade-in visible scroll-section"
@@ -538,12 +563,27 @@
     </section>
     <!-- 6. Venue Section -->
     <section class="py-section-gap px-6 md:px-12 fade-in visible" id="venue">
-      <div class="mb-16 text-left">
-        <h3
-          class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background text-left uppercase leading-tight"
+      <div
+        class="mb-16 max-w-2xl mx-auto text-center flex flex-col items-center"
+      >
+        <img
+          src="assets/img/gv.png"
+          alt="GV"
+          width="128"
+          height="128"
+          class="imgGV"
+        />
+
+        <p
+          class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase text-center"
         >
-          SATURDAY,<br />28 NOVEMBER 2026
-        </h3>
+          THE RUNDOWN
+        </p>
+        <p
+          class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background text-center leading-tight"
+        >
+          Saturday,<br />28 . 11 . 2026
+        </p>
       </div>
       <div
         class="grid grid-cols-1 md:grid-cols-2 gap-stack-md md:gap-12 max-w-container-max mx-auto"
@@ -572,13 +612,14 @@
             <p
               class="font-body-md text-body-lg text-on-surface-variant leading-relaxed"
             >
-              Saint Jehoshaphat Catholic Church,<br />Semolowaru, Surabaya, East
+              Saint Marinus John Catholic Church,<br />Kenjeran, Surabaya, East
               Java
             </p>
             <button
               class="mt-4 px-8 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all shadow-sm uppercase"
+              onclick="window.open('https://maps.app.goo.gl/tR4kThmx54psamAT7', '_blank')"
             >
-              GOOGLE MAPS
+              Google Maps
             </button>
           </div>
         </div>
@@ -605,8 +646,9 @@
             </p>
             <button
               class="mt-4 px-8 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all shadow-sm uppercase"
+              onclick="window.open('https://maps.app.goo.gl/GCwYPqMuAG3oxqBx6', '_blank')"
             >
-              GOOGLE MAPS
+              Google Maps
             </button>
           </div>
         </div>
@@ -614,7 +656,7 @@
     </section>
     <!-- 7. Countdown Section -->
     <section
-      class="relative min-h-screen flex items-center justify-center bg-[#38bdf8] py-24 px-6 md:px-12 fade-in visible"
+      class="relative min-h-screen flex items-center justify-center py-24 px-6 md:px-12 fade-in visible"
     >
       <div class="max-w-container-max mx-auto text-center">
         <div class="flex flex-col items-center gap-8">
@@ -657,9 +699,148 @@
           </div>
           <button
             class="mt-8 px-12 py-3 bg-[#ffcc33] text-black rounded-lg font-display-lg text-sm tracking-widest shadow-md hover:brightness-110 transition-all uppercase"
+            type="button"
+            onclick="window.open('https://calendar.app.google/zDfEMj2s8CkKqJQq5');"
           >
             SAVE THE DATE
           </button>
+        </div>
+      </div>
+    </section>
+    <!-- Love Story-->
+    <section
+      class="py-24 md:py-32 px-gutter bg-background fade-in visible scroll-section"
+      id="section-bible"
+    >
+      <div
+        class="max-w-2xl mx-auto text-center flex flex-col items-center py-20 px-6"
+      >
+        <img
+          src="assets/img/cross.png"
+          alt="Cross"
+          width="72"
+          height="72"
+          class="imgCross"
+        />
+
+        <h3
+          class="font-headline-sm text-headline-sm text-on-background tracking-[0.3em] uppercase mb-8 mt-4"
+        >
+          Our Love Story
+        </h3>
+        <p
+          class="font-headline-sm text-2xl md:text-3xl text-on-surface-variant leading-[1.8] mb-16 font-light"
+          id="txtBible2"
+        >
+          So they are no longer two, but one flesh. Therefore what God has
+          joined together, let no one separate.
+        </p>
+        <p class="font-headline-sm text-xl text-on-background" id="txtBible3">
+          Gerwin &amp; Verin
+        </p>
+      </div>
+    </section>
+    <!-- 11. Gallery Section (Wider Desktop Grid) -->
+    <section
+      class="py-section-gap px-6 md:px-12 bg-surface fade-in visible scroll-section"
+      id="section-gallery"
+    >
+      <div class="max-w-container-max mx-auto text-center mb-16">
+        <div class="relative inline-block mb-12">
+          <h2
+            class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface uppercase tracking-widest leading-tight"
+          >
+            OUR PRE-WEDDING<br />CELEBRATIONS.
+          </h2>
+          <p
+            class="font-headline-sm text-3xl md:text-4xl text-secondary italic mt-[-1rem] md:mt-[-2rem] relative z-10"
+          >
+            Gerwin &amp; Verin
+          </p>
+        </div>
+        <div class="containerpic">
+          <iframe
+            width="100%"
+            height="auto"
+            src="https://www.youtube-nocookie.com/embed/NhV-FY3UlMU?si=Pe325GUPhN8L-YvQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+          <ul class="gridspic effect-2" id="gridspic">
+            <li>
+              <img src="assets/img/JV-13.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-14.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-25.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-27.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-43.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-48.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-89.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-91.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-106.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-179.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-182.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-185.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-281.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-284.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-286.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-322.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-328.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-329.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-332.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-351.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-354.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-372.jpg" />
+            </li>
+            <li>
+              <img src="assets/img/JV-395.jpg" />
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -673,23 +854,178 @@
         >
           Wedding Gift
         </h3>
-        <div
-          class="aspect-square w-56 md:w-64 mx-auto mb-10 bg-surface rounded-3xl flex items-center justify-center p-6 border border-dashed border-secondary/30"
-        >
-          <img
-            alt="QR Code Gift"
-            class="w-full h-full object-contain"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlht1UUTGkQqH7X_b8vW_rZJHrG62iRL2koXyfd8otpzTtPrloTTPw_QqUnvYpn3kDAv1UVMiiV0Fj92p0xEgtpxWv8O_MrRQBIaiSHT7u2Te_caKdgJITRLqXGwy9et-nhO4CikUGDMHfc9vQQTUKCx-i0PDDu4E8AgDGV5p1qH0-jiPJfpCn6NrzRgSI2R7jrZq_f7_68ftfn4kPpy0XAKu1whoA3Xs5eWQ0GD9p21-rTFYxouAdVCMM4g8mqPkFzY8nA1pckDFc"
-          />
-        </div>
         <p
           class="font-body-lg text-body-lg md:text-xl text-on-surface-variant italic leading-relaxed"
         >
-          "Your presence is our greatest gift, but if you wish to contribute to
-          our future, scan here."
+          Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan
+          jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui
+          dibawah ini.
         </p>
+        <button
+          class="mb-5 mt-5 w-full py-2 bg-secondary text-on-secondary rounded-xl font-label-caps text-label-caps text-sm tracking-[0.3em] shadow-lg hover:brightness-110 active:scale-[0.99] transition-all"
+          type="submit"
+          id="submitWeddingGift"
+        >
+          Kirim Disini
+        </button>
+        <div
+          id="accordionContent"
+          class="max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-50/30"
+        >
+          <!-- Konten Internal (Diberi padding atas-bawah agar jaraknya rapi saat terbuka) -->
+          <div class="border-t border-gray-100 space-y-3">
+            <div
+              class="max-w-sm bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <!-- Area Gambar -->
+              <div class="relative overflow-hidden aspect-video bg-gray-100">
+                <img
+                  src="https://unsplash.com"
+                  alt="Product"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span
+                  class="absolute top-3 left-3 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm"
+                >
+                  <img
+                    width="50"
+                    height="50"
+                    src="assets/img/Bank_Mandiri_logo_2016.svg.webp"
+                    alt="Product"
+                    class="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </span>
+              </div>
+
+              <!-- Konten Teks -->
+              <div class="p-5 text-left">
+                <span
+                  class="text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                  >MANDIRI</span
+                >
+                <h3
+                  class="text-lg font-bold text-gray-900 mt-1 group-hover:text-indigo-600 transition-colors"
+                >
+                  0123 4567 8900 0000
+                </h3>
+                <span
+                  class="text-xs text-left font-bold text-indigo-600 uppercase tracking-wider"
+                  >GERWIN JONATHAN HENRI</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="max-w-sm bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <!-- Area Gambar -->
+              <div class="relative overflow-hidden aspect-video bg-gray-100">
+                <img
+                  src="https://unsplash.com"
+                  alt="Product"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span
+                  class="absolute top-3 left-3 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm"
+                >
+                  <img
+                    width="50"
+                    height="50"
+                    src="assets/img/Bank_Central_Asia.svg.webp"
+                    alt="Product"
+                    class="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </span>
+              </div>
+
+              <!-- Konten Teks -->
+              <div class="p-5 text-left">
+                <span
+                  class="text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                  >BCA</span
+                >
+                <h3
+                  class="text-lg font-bold text-gray-900 mt-1 group-hover:text-indigo-600 transition-colors"
+                >
+                  0123 4567 8900 1000
+                </h3>
+                <span
+                  class="text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                  >AVERINA LAURENSIA</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="max-w-sm bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <!-- Area Gambar -->
+              <div class="relative overflow-hidden aspect-video bg-gray-100">
+                <img
+                  src="https://unsplash.com"
+                  alt="Product"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <!-- Konten Teks -->
+              <div class="p-5">
+                <span
+                  class="text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                  >ALAMAT</span
+                >
+                <h3
+                  class="text-lg font-bold text-gray-900 mt-1 group-hover:text-indigo-600 transition-colors"
+                >
+                  KIRIM HADIAH
+                </h3>
+                <p class="text-sm text-gray-500 mt-2 line-clamp-2">
+                  Penerima: Paulus Henri
+                </p>
+                <p class="text-sm text-gray-500 mt-2 line-clamp-2">
+                  Griya Permata Hijau, L-19, Kabupaten Sidoarjo, Jawa Timur,
+                  Indonesia
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    <script>
+      const submitWeddingGift = document.getElementById("submitWeddingGift");
+      const accordionContent = document.getElementById("accordionContent");
+      const accordionArrow = document.getElementById("accordionArrow");
+
+      let isExpanded = false;
+
+      submitWeddingGift.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+
+        if (isExpanded) {
+          // 1. Ubah max-height dari 0 menjadi tinggi asli konten (dalam satuan pixel)
+          accordionContent.style.maxHeight =
+            accordionContent.scrollHeight + "px";
+
+          // 2. Munculkan konten secara halus (fade-in)
+          accordionContent.classList.remove("opacity-0");
+          accordionContent.classList.add("opacity-100");
+
+          // 3. Putar panah ke atas
+          accordionArrow.classList.add("rotate-180");
+        } else {
+          // 1. Kembalikan max-height ke 0 untuk melipat kartu kembali
+          accordionContent.style.maxHeight = "0px";
+
+          // 2. Sembunyikan konten secara halus (fade-out)
+          accordionContent.classList.remove("opacity-100");
+          accordionContent.classList.add("opacity-0");
+
+          // 3. Kembalikan arah panah ke posisi semula
+          accordionArrow.classList.remove("rotate-180");
+        }
+      });
+    </script>
     <!-- 9. RSVP Form Section -->
     <section
       class="py-section-gap px-6 md:px-12 bg-surface-container-low fade-in visible"
@@ -702,36 +1038,36 @@
           <h3
             class="font-headline-md text-headline-md md:text-display-lg-mobile text-primary"
           >
-            RSVP
+            Ucapan & Doa
           </h3>
-          <p class="font-body-md text-body-lg text-on-surface-variant">
-            Please confirm your attendance
-          </p>
         </div>
         <form class="space-y-8" id="rsvpForm">
           <div>
             <label
               class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
-              >Guest Name</label
+              >Nama Tamu</label
             >
             <input
+              id="guestAttendance"
               class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-4 font-body-lg text-lg"
-              placeholder="Enter your full name"
+              placeholder="Nama"
               type="text"
             />
           </div>
           <div>
             <label
               class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
-              >Will you attend?</label
+              >Apakah bersedia datang?</label
             >
             <div class="flex flex-wrap gap-12 mt-4">
               <label class="inline-flex items-center cursor-pointer group">
                 <input
+                  id="yesAttendance"
                   class="w-6 h-6 text-secondary focus:ring-secondary border-outline-variant"
                   name="attendance"
                   type="radio"
                   value="yes"
+                  onchange="onshowattendance()"
                 />
                 <span
                   class="ml-4 font-body-lg text-lg group-hover:text-secondary transition-colors"
@@ -740,10 +1076,12 @@
               </label>
               <label class="inline-flex items-center cursor-pointer group">
                 <input
+                  id="noAttendance"
                   class="w-6 h-6 text-secondary focus:ring-secondary border-outline-variant"
                   name="attendance"
                   type="radio"
                   value="no"
+                  onchange="onshowattendance()"
                 />
                 <span
                   class="ml-4 font-body-lg text-lg group-hover:text-secondary transition-colors"
@@ -752,25 +1090,159 @@
               </label>
             </div>
           </div>
+          <div id="divpax">
+            <label
+              class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
+              >Jumlah Kedatangan</label
+            >
+            <input
+              id="paxAttendance"
+              class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-4 font-body-lg text-lg"
+              placeholder="Jumlah Pax"
+              type="number"
+            />
+          </div>
           <div>
             <label
               class="block font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest"
               >Wishes for the Couple</label
             >
             <textarea
+              id="wishAttendance"
               class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 px-0 py-4 font-body-lg text-lg h-32 resize-none"
               placeholder="Write your warm wishes..."
             ></textarea>
           </div>
           <button
+            id="submitAttendance"
             class="w-full py-6 bg-secondary text-on-secondary rounded-xl font-label-caps text-label-caps text-sm tracking-[0.3em] shadow-lg hover:brightness-110 active:scale-[0.99] transition-all"
-            type="submit"
+            type="button"
           >
             SEND RSVP
           </button>
         </form>
       </div>
     </section>
+    <script>
+      var url = "https://weds-new-api.vercel.app/api/rsvp/";
+      $("#divpax").hide();
+
+      function onshowattendance() {
+        if ($("#yesAttendance").prop("checked") == true) {
+          $("#divpax").show();
+        } else {
+          $("#divpax").hide();
+        }
+      }
+
+      $("#submitAttendance").click(function () {
+        var nama = $("#guestAttendance").val();
+        var confirmed = $("#yesAttendance").prop("checked") ? "Y" : "N";
+        var pax = $("#paxAttendance").val();
+        var wishes = $("#wishAttendance").val();
+
+        let data = {
+          documentId: sessionStorage.getItem("documentId"),
+          name: nama,
+          confirmed: confirmed,
+          confirmedpax: confirmed == "Y" ? pax : "0",
+          type: sessionStorage.getItem("type"),
+          wishes: wishes,
+        };
+
+        fetchInsertRsvp(data)
+          .then((data) => {
+            if (data.success) {
+              alert("Success!");
+              redrawListRsvp();
+            } else {
+              alert("Please try again!");
+            }
+          })
+          .catch((err) => {
+            console.error("Error: ", err);
+          });
+
+        console.log(data);
+      });
+
+      function fetchInsertRsvp(data) {
+        return insertRsvp(data)
+          .then((data) => {
+            return data;
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
+      }
+
+      async function insertRsvp(data) {
+        const options = {
+          method: "POST",
+          mode: "cors", // 1. Explicitly enable Cross-Origin Resource Sharing
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+
+        try {
+          const response = await fetch(url + "insertRsvp", options);
+
+          if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          return result;
+        } catch (error) {
+          console.error("CORS or Network Error:", error);
+        }
+      }
+
+      function redrawListRsvp() {
+        fetchLoadRsvp().then((listRsvp) => {
+          for (var i = 0; i < listRsvp.length; i++) {
+            console.log("RSVP " + listRsvp[i].wishes);
+          }
+        })
+      }
+
+      function fetchLoadRsvp() {
+        return loadRsvp()
+          .then((data) => {
+            return data;
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
+      }
+
+      async function loadRsvp() {
+        const options = {
+          method: "GET",
+          mode: "cors", // 1. Explicitly enable Cross-Origin Resource Sharing
+          headers: {
+            "Content-Type": "application/json",
+            // 'Accept': 'application/json' (Optional: tells server what you want back)
+          },
+        };
+
+        try {
+          const response = await fetch(url + "getListRsvp", options);
+
+          if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          return result;
+        } catch (error) {
+          console.error("CORS or Network Error:", error);
+        }
+      }
+    </script>
+
     <!-- 10. Wishes Wall Section -->
     <section
       class="py-section-gap px-6 md:px-12 fade-in overflow-hidden visible"
@@ -831,49 +1303,6 @@
         </div>
       </div>
     </section>
-    <!-- 11. Gallery Section (Wider Desktop Grid) -->
-    <section
-      class="py-section-gap px-6 md:px-12 bg-surface fade-in visible"
-      id="gallery"
-    >
-      <div class="max-w-container-max mx-auto text-center mb-16">
-        <div class="relative inline-block mb-12">
-          <h2
-            class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface uppercase tracking-widest leading-tight"
-          >
-            OUR PRE-WEDDING<br />CELEBRATIONS.
-          </h2>
-          <p
-            class="font-headline-sm text-3xl md:text-4xl text-secondary italic mt-[-1rem] md:mt-[-2rem] relative z-10"
-          >
-            Gerwin &amp; Verin
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-            <img
-              alt="Pre-wedding 1"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLsuZ9mgH7o2J9dK6wTWXmraeEqoDGkgz8qiidmWjOp1xs24xwogKkIwUcnmG6p-4Xmq7NdqUJ0Mcf0WuT1VsJhgQx7xX3c0jseVDLzDSTCKmQPC4XYZvg9ChXL8cQs_QRtZhGPJeHNdqbxwep2xHi_E8Rg-1V54IrsfWXSJ0f8xVJhcNB9RUhtA6AyZEZ4gx8CnfO9TTDmLrJrovAV48uGiIF1imIFZGk44psxYJeQb4uwU4D-VlBZt9pa9"
-            />
-          </div>
-          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-            <img
-              alt="Pre-wedding 2"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvxtim2o0C45aJVjlBj8UMJNpAub8X8gCnSqVFlVNOQO-4GbDNUaVLIGyypphc_jSURKd0Sn54ZWbm30A39uE5b3tlKN2yMJcQAl6bPKkzcd3pJgbFEsvvmURKkju49vFm0fbWVbBLkvJ8psooDq4ZeL0xF_kPm2iXpbiFsbpJJ7ZebLFLah5tqmD93tuZMBBzg3JYxJU4FDZbAMxKZk_Ruug2pvabl6YJM6DT97S4BzpLOtoDniMMAQ8zq"
-            />
-          </div>
-          <div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-            <img
-              alt="Pre-wedding 3"
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYPv4Darr1S1oHCSmkkZURMR9pPcCWIarAs5Gs2Yl_sK9Uxjt_90rDNUrXlbz4EDesBfX7e74e7Hem42siHdJp8AtInt2vkWR1Ntm8iV0BGIMvvevWwNb3IfuV9gH50ROH_hYiST1khnTS2Bzereye6LfRcXFypBSzkpJZiU_KH9J33vd7PcGVXJHsFVAOW8imRHbiZPRkAC-Qq3sjcle7IrzuT-M7mXlff7-j7mpylXC_R_V0GOjzL8IRS7euTdo4FD4OklZu4p5K"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- 12. Thank You Section -->
     <section
       class="h-[80vh] flex flex-col items-center justify-center bg-primary-container text-center px-6 md:px-12 relative overflow-hidden"
@@ -901,6 +1330,67 @@
         class="botanical-divider absolute bottom-12 md:bottom-24 opacity-10 rotate-180"
       ></div>
     </section>
+    <!-- Footer -->
+    <footer>
+      <div class="text-center mt-10 mb-10">
+        <a
+          href="#"
+          class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900"
+        >
+          <img
+            src="assets/img/gv.png"
+            width="72"
+            height="72"
+            alt="Gerwin Verin"
+          />
+        </a>
+
+        <span class="block text-sm text-center text-gray-500"
+          >© 2026 Gerwin Verin™. Build with Love.
+        </span>
+
+        <span class="block text-sm text-center text-gray-500"
+          >#fore<b>VERIN</b>lovewith<b>GERWIN</b>
+        </span>
+
+        <ul class="flex justify-center mt-5 space-x-5">
+          <li>
+            <a href="#" class="text-gray-500 hover:text-gray-900">
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-sm">@gerwinjonathan</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-500 hover:text-gray-900">
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-sm">@verin_26</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script>
       // Countdown Logic
       const targetDate = new Date("November 28, 2026 10:00:00").getTime();
@@ -1049,6 +1539,12 @@
                     easing: "linear", // Even, steady transition
                     delay: 500, // Stay invisible for 0.5 seconds before fading back in
                   });
+              } else if (entry.target.id === "section-gallery") {
+                new AnimOnScroll(document.getElementById("gridspic"), {
+                  minDuration: 0.4,
+                  maxDuration: 0.7,
+                  viewportFactor: 0.2,
+                });
               }
 
               observer.unobserve(entry.target);
@@ -1090,280 +1586,5 @@
           .forEach((sec) => observer.observe(sec));
       });
     </script>
-
-    <!-- <script>
-      function init() {
-        const options = {
-          root: null,
-          threshold: 1,
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            let sectionOpeningTimeline = anime.timeline({
-              loop: false,
-            });
-
-            let sectionBibleTimeline = anime.timeline({
-              loop: false, // Set to true if you want the cycle to repeat infinitely
-            });
-
-            if (entry.isIntersecting) {
-              if (entry.target.id === "section-opening") {
-                sectionOpeningTimeline
-                  .add({
-                    targets: "#txtWeddingOf",
-                    opacity: [0, 1],
-                    duration: 500, // 1 second duration
-                    easing: "easeOutExpo", // Even, steady transition
-                    delay: 13000, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtGerwin",
-                    opacity: [0, 1],
-                    duration: 750, // 1 second duration
-                    easing: "easeOutExpo", // Even, steady transition
-                    delay: 250, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtAnd",
-                    opacity: [0, 1],
-                    duration: 750, // 1 second duration
-                    easing: "easeOutExpo", // Even, steady transition
-                    delay: 5, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtVerin",
-                    opacity: [0, 1],
-                    duration: 750, // 1 second duration
-                    easing: "easeOutExpo", // Even, steady transition
-                    delay: 5, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtDate",
-                    opacity: [0, 1],
-                    duration: 500, // 1 second duration
-                    easing: "easeOutExpo", // Even, steady transition
-                    delay: 100, // Stay invisible for 0.5 seconds before fading back in
-                  });
-
-                setTimeout(function () {
-                  const container = document.getElementById("gif-scroll-down");
-                  const img = document.createElement("img");
-                  img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
-                  img.width = 40;
-                  img.height = 40;
-                  container.appendChild(img);
-                }, 16500);
-              } else if (entry.target.id === "section-bible") {
-                sectionBibleTimeline
-                  .add({
-                    targets: ".imgCross",
-                    opacity: [0, 1],
-                    duration: 250, // 1 second duration
-                    easing: "linear", // Even, steady transition
-                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtBible",
-                    opacity: [0, 1],
-                    duration: 250, // 1 second duration
-                    easing: "linear", // Even, steady transition
-                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtBible2",
-                    opacity: [0, 1],
-                    duration: 250, // 1 second duration
-                    easing: "linear", // Even, steady transition
-                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
-                  })
-                  .add({
-                    targets: "#txtBible3",
-                    opacity: [0, 1],
-                    duration: 250, // 1 second duration
-                    easing: "linear", // Even, steady transition
-                    delay: 500, // Stay invisible for 0.5 seconds before fading back in
-                  });
-              }
-
-              observer.unobserve(entry.target);
-            } else {
-              if (entry.target.id === "section-opening") {
-                sectionOpeningTimeline.add({
-                  targets: [
-                    "#txtWeddingOf",
-                    "#txtGerwin",
-                    "#txtAnd",
-                    "#txtVerin",
-                    "#txtDate",
-                  ],
-                  opacity: 0,
-                  duration: 0, // 1 second duration
-                  easing: "linear", // Even, steady transition
-                  delay: 0,
-                });
-              } else if (entry.target.id === "section-bible") {
-                sectionBibleTimeline.add({
-                  targets: [
-                    ".imgCross",
-                    "#txtBible",
-                    "#txtBible2",
-                    "#txtBible3",
-                  ],
-                  opacity: 0,
-                  duration: 0, // 1 second duration
-                  easing: "linear", // Even, steady transition
-                  delay: 0,
-                });
-              }
-            }
-          });
-        }, options);
-
-        document
-          .querySelectorAll(".scroll-section")
-          .forEach((sec) => observer.observe(sec));
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", init);
-      } else {
-        init();
-      }
-    //   document.addEventListener("DOMContentLoaded", () => {
-    //     const options = {
-    //       root: null,
-    //       threshold: 1,
-    //     };
-
-    //     const observer = new IntersectionObserver((entries, observer) => {
-    //       entries.forEach((entry) => {
-    //         let sectionOpeningTimeline = anime.timeline({
-    //           loop: false,
-    //         });
-
-    //         let sectionBibleTimeline = anime.timeline({
-    //           loop: false, // Set to true if you want the cycle to repeat infinitely
-    //         });
-
-    //         if (entry.isIntersecting) {
-    //           if (entry.target.id === "section-opening") {
-    //             sectionOpeningTimeline
-    //               .add({
-    //                 targets: "#txtWeddingOf",
-    //                 opacity: [0, 1],
-    //                 duration: 500, // 1 second duration
-    //                 easing: "easeOutExpo", // Even, steady transition
-    //                 delay: 13000, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtGerwin",
-    //                 opacity: [0, 1],
-    //                 duration: 750, // 1 second duration
-    //                 easing: "easeOutExpo", // Even, steady transition
-    //                 delay: 250, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtAnd",
-    //                 opacity: [0, 1],
-    //                 duration: 750, // 1 second duration
-    //                 easing: "easeOutExpo", // Even, steady transition
-    //                 delay: 5, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtVerin",
-    //                 opacity: [0, 1],
-    //                 duration: 750, // 1 second duration
-    //                 easing: "easeOutExpo", // Even, steady transition
-    //                 delay: 5, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtDate",
-    //                 opacity: [0, 1],
-    //                 duration: 500, // 1 second duration
-    //                 easing: "easeOutExpo", // Even, steady transition
-    //                 delay: 100, // Stay invisible for 0.5 seconds before fading back in
-    //               });
-
-    //             setTimeout(function () {
-    //               const container = document.getElementById("gif-scroll-down");
-    //               const img = document.createElement("img");
-    //               img.src = "v1.0.0/assets/svg/scrolldown-2.gif";
-    //               img.width = 40;
-    //               img.height = 40;
-    //               container.appendChild(img);
-    //             }, 16500);
-    //           } else if (entry.target.id === "section-bible") {
-    //             sectionBibleTimeline
-    //               .add({
-    //                 targets: ".imgCross",
-    //                 opacity: [0, 1],
-    //                 duration: 250, // 1 second duration
-    //                 easing: "linear", // Even, steady transition
-    //                 delay: 500, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtBible",
-    //                 opacity: [0, 1],
-    //                 duration: 250, // 1 second duration
-    //                 easing: "linear", // Even, steady transition
-    //                 delay: 500, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtBible2",
-    //                 opacity: [0, 1],
-    //                 duration: 250, // 1 second duration
-    //                 easing: "linear", // Even, steady transition
-    //                 delay: 500, // Stay invisible for 0.5 seconds before fading back in
-    //               })
-    //               .add({
-    //                 targets: "#txtBible3",
-    //                 opacity: [0, 1],
-    //                 duration: 250, // 1 second duration
-    //                 easing: "linear", // Even, steady transition
-    //                 delay: 500, // Stay invisible for 0.5 seconds before fading back in
-    //               });
-    //           }
-
-    //           observer.unobserve(entry.target);
-    //         } else {
-    //           if (entry.target.id === "section-opening") {
-    //             sectionOpeningTimeline.add({
-    //               targets: [
-    //                 "#txtWeddingOf",
-    //                 "#txtGerwin",
-    //                 "#txtAnd",
-    //                 "#txtVerin",
-    //                 "#txtDate",
-    //               ],
-    //               opacity: 0,
-    //               duration: 0, // 1 second duration
-    //               easing: "linear", // Even, steady transition
-    //               delay: 0,
-    //             });
-    //           } else if (entry.target.id === "section-bible") {
-    //             sectionBibleTimeline.add({
-    //               targets: [
-    //                 ".imgCross",
-    //                 "#txtBible",
-    //                 "#txtBible2",
-    //                 "#txtBible3",
-    //               ],
-    //               opacity: 0,
-    //               duration: 0, // 1 second duration
-    //               easing: "linear", // Even, steady transition
-    //               delay: 0,
-    //             });
-    //           }
-    //         }
-    //       });
-    //     }, options);
-
-    //     document
-    //       .querySelectorAll(".scroll-section")
-    //       .forEach((sec) => observer.observe(sec));
-    //   });
-    </script> -->
   </body>
 </html>
